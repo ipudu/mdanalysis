@@ -26,7 +26,8 @@ install:
   - chmod +x testsuite/MDAnalysisTests/mda_nosetests
 # command to run tests
 script:
-    - ./testsuite/MDAnalysisTests/mda_nosetests -v --with-coverage --cover-package MDAnalysis --processes=2 --process-timeout=120 --with-memleak
+    - ./testsuite/MDAnalysisTests/mda_nosetests -v --with-coverage --cover-package MDAnalysis --processes=2 --process-timeout=120 --with-memleak -p
 after_success:
+  - coverage combine
   - coveralls
 
